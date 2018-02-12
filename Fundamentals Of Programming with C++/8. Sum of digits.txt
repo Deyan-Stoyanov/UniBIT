@@ -1,0 +1,18 @@
+#include "stdafx.h"
+#include <iostream>
+#include <math.h>
+#include <string>
+using namespace std;
+
+int main()
+{
+	int number, sum = 0;
+	cin >> number;
+	while (number > 0)
+	{
+		sum += (number % 10);
+		number /= 10;
+	}
+	cout << sum << "\n";
+	return 0;
+}

@@ -1,0 +1,21 @@
+#include "stdafx.h"
+#include <iostream>
+#include <math.h>
+#include <string>
+using namespace std;
+
+int main()
+{
+	int workingDays;
+	double dollarsPerDay, dollarCourse;
+	cin >> workingDays >> dollarsPerDay >> dollarCourse;
+	double dollarsPerMonth = dollarsPerDay * workingDays;
+	double bonus = dollarsPerMonth * 2.5;
+	double dollarsPerYear = dollarsPerMonth * 12 + bonus;
+	double taxes = dollarsPerYear * 0.25;
+	double salaryAfterTaxes = dollarsPerYear - taxes;
+	double leva = salaryAfterTaxes * dollarCourse;
+	float levaPerDay = leva / 365.0;
+	cout << "Ivan earns " << levaPerDay << " lv. per day.\n";
+	return 0;
+}

@@ -1,0 +1,20 @@
+#include "stdafx.h"
+#include <iostream>
+#include <math.h>
+#include <string>
+using namespace std;
+
+int main()
+{
+	int playgroundSide, benchLength, benchWidth;
+	double tileLength, tileWidth;
+	cin >> playgroundSide >> tileWidth >> tileLength >> benchWidth >>benchLength;
+	int playgroundArea = playgroundSide * playgroundSide;
+	double areaOfOneTile = tileLength * tileWidth;
+	int benchArea = benchLength * benchWidth;
+	int areaToRepair = playgroundArea - benchArea;
+	double numberOfTiles = areaToRepair / areaOfOneTile;
+	double time = numberOfTiles * 0.2;
+	cout << "Number of tiles needed: " << numberOfTiles << "\nTime needed: " << time << "\n";
+	return 0;
+}

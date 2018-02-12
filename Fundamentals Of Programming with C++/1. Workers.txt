@@ -1,0 +1,17 @@
+#include "stdafx.h"
+#include <iostream>
+#include <math.h>
+#include <string>
+using namespace std;
+
+int main()
+{
+	int bricks = 0;
+	int workers = 0;
+	int capacity = 0;
+	cin >> bricks >> workers >> capacity;
+	int bricksPerCourse = workers * capacity;
+	double courses = ceil((double)bricks / bricksPerCourse);
+	cout << "Courses needed: " << courses << " \n";
+	return 0;
+}
