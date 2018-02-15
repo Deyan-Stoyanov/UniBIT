@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1 id="h1">Welcome in  UNIBIT</h1>
+    <button id="b1" onclick="myFunc2()">Try</button>
+
+    <script>
+        let b = true;
+        function myFunc() {
+            let text = (b) ? "Text2" : "Text1";
+            let buttonText = document.getElementById("b1").textContent.match("Try") ? buttonText = "Go Back" : buttonText = "Try";
+            document.getElementById("h1").innerHTML = text;
+            document.getElementById("b1").textContent = buttonText;
+            b = !b;
+        }
+        function myFunc2() {
+            let text;
+            let buttonText;
+            if (b) {
+                text = "Text2";
+                buttonText = "Go Back";
+            } else {
+                text = "Text1";
+                buttonText = "Try";
+            }
+            document.getElementById("h1").innerHTML = text;
+            document.getElementById("b1").textContent = buttonText;
+            b = !b;
+        }
+    </script>
+</body>
+</html>

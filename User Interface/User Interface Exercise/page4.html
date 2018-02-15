@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function sum(x, y) {
+            let z = x + y;
+            document.getElementById("h1").innerHTML = z;
+        }
+        function substract(x, y) {
+            let z = x - y;
+            document.getElementById("h2").innerHTML = z;
+        }
+        function multiply(x, y) {
+            let z = x * y;
+            document.getElementById("h3").innerHTML = z;
+        }
+        function divide(x, y) {
+            let z = x / y;
+            document.getElementById("h4").innerHTML = z;
+        }
+        function ShowAll() {
+            let x = Number(document.getElementById('i1').value);
+            let y = Number(document.getElementById('i2').value);
+            sum(x, y);
+            substract(x, y);
+            multiply(x, y);
+            divide(x, y);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        First number: <input id="i1" type="number" name="x" value="Enter first number" />
+        Second number: <input id="i2" type="number" name="y" value="Enter second number" />
+    </div>
+    <div>
+        <h1 id="h1">Sum</h1>
+        <h1 id="h2">Substract</h1>
+        <h1 id="h3">Multiply</h1>
+        <h1 id="h4">Divide</h1>
+    </div>
+    <div class="container">
+        <button onclick="sum(Number(document.getElementById('i1').value), Number(document.getElementById('i2').value))">Sum</button>
+        <button onclick="substract(Number(document.getElementById('i1').value), Number(document.getElementById('i2').value))">Substract</button>
+        <button onclick="multiply(Number(document.getElementById('i1').value), Number(document.getElementById('i2').value))">Multiply</button>
+        <button onclick="divide(Number(document.getElementById('i1').value), Number(document.getElementById('i2').value))">Divide</button>
+        <button onclick="ShowAll()"> Show All</button>
+    </div>
+</body>
+</html>

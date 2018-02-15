@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function myFunc() {
+            if (document.getElementById("i1").src.match("bulb_on.png")) {
+                document.getElementById("i1").src = ("bulb_off.jpg");
+                document.getElementById("b1").textContent = ("bulb on");
+            } else  {
+                document.getElementById("i1").src = ("bulb_on.png");
+                document.getElementById("b1").textContent = ("bulb off");
+            }
+        }
+    </script>
+</head>
+<body>
+    <img id="i1" width="400" height="600" src="bulb_on.png" />
+    <div>
+        <button  id="b1" onclick="myFunc()">bulb on</button>
+    </div>
+</body>
+</html>

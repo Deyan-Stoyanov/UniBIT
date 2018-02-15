@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<style>
+    .b {
+        background-color: #004180; /* Green */
+        border: double;
+        color: #ffffff;
+        padding: 12px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        border-radius: 30%;
+        align-items: center;
+    }
+	.b:hover{
+	background-color: red;
+	}
+    .d {
+        background-color: #ffd800; /* Green */
+        border: double;
+        color: #ffffff;
+        padding: 12px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        align-items: center;
+    }
+    .i{
+        border:double;
+        border-color:blue;
+        border-style:dotted;
+        border-width: 5px;
+    }
+
+    body {
+        background-color: aquamarine;
+    }
+</style>
+<head>
+    <meta charset="utf-8" />
+    <title>Slideshow</title>
+</head>
+<body>
+    <script>
+        let a = 1;
+        function changeImage(button) {
+            let b = button.value;
+            switch (b) {
+                case "1":
+                    document.getElementById("img").src = "img1.jpg";
+                    break;
+                case "2":
+                    document.getElementById("img").src = "img2.jpg";
+                    break;
+                case "3":
+                    document.getElementById("img").src = "img3.jpg";
+                    break;
+                case "4":
+                    document.getElementById("img").src = "img4.jpg";
+                    break;
+                case "5":
+                    document.getElementById("img").src = "img5.jpg";
+                    break;
+                case "6":
+                    document.getElementById("img").src = "img6.jpg";
+                    break;
+                case "7":
+                    document.getElementById("img").src = "img7.jpg";
+                    break;
+                case "8":
+                    document.getElementById("img").src = "img8.jpg";
+                    break;
+                default:
+            }
+        }
+
+    </script>
+
+    <div>
+        <img class="i" src="changeImage()" height="450" width="750" alt="Picture Slideshow" id="img"><br />
+        <div class="d">
+            <button class="b" onclick="changeImage(this)" type="button" id="button1" value="1">1</button>
+            <button class="b" onclick="changeImage(this)" type="button" id="button2" value="2">2</button>
+            <button class="b" onclick="changeImage(this)" type="button" id="button3" value="3">3</button>
+            <button class="b" onclick="changeImage(this)" type="button" id="button4" value="4">4</button>
+            <button class="b" onclick="changeImage(this)" type="button" id="button5" value="5">5</button>
+            <button class="b" onclick="changeImage(this)" type="button" id="button6" value="6">6</button>
+            <button class="b" onclick="changeImage(this)" type="button" id="button7" value="7">7</button>
+            <button class="b" onclick="changeImage(this)" type="button" id="button8" value="8">8</button>
+        </div>
+    </div>
+
+
+</body>
+</html>
