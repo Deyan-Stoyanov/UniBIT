@@ -1,0 +1,251 @@
+//Създават се два класа - Продукт (с параметри имеп мерна единица, цена на едро,
+//цена на дребно[цената на едро с 20% ДДС и 20 % надценка], 
+//цена с отстъпка[цената на едро с 20% ДДС и 15 % отстъпка, само при повече от 15 поръчани продукта]) и брой на продуктите
+//и Клиент (с параметри тип, име, продукт и паксимална цена, която е склонен да плати). Изпечатайте всички клиенти с тяхното име,
+//тип, продукт, количество и цена на продукта, а ако не е закупен продукт, изпечатайте съответното съобщение.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProductsAndUsers
+{
+    class Product
+    {
+        private string Name;
+        private string Unit;
+        private decimal WholeSalePrice;
+        private decimal RetailPrice;
+        private decimal DiscountPrice;
+        private int CountOfProducts;
+
+        public Product(string name, string unit, decimal wholeSalePrice, decimal retailPrice, decimal discountPrice, int countOfProducts)
+        {
+            Name = name;
+            Unit = unit;
+            WholeSalePrice = wholeSalePrice;
+            RetailPrice = retailPrice;
+            DiscountPrice = discountPrice;
+            CountOfProducts = countOfProducts;
+        }
+
+        public Product() { }
+
+        public string GetName()
+        {
+            return this.Name;
+        }
+        public void SetName(string Name)
+        {
+            this.Name = Name;
+        }
+
+        public string GetUnit()
+        {
+            return this.Unit;
+        }
+        public void SetUnit(string Unit)
+        {
+            this.Unit = Unit;
+        }
+
+        public decimal GetWholeSalePrice()
+        {
+            return this.WholeSalePrice;
+        }
+        public void SetWholeSalePrice(decimal WholeSalePrice)
+        {
+            this.WholeSalePrice = WholeSalePrice;
+        }
+
+        public decimal GetRetailPrice()
+        {
+            return this.RetailPrice;
+        }
+        public void SetRetailPrice(decimal RetailPrice)
+        {
+            this.RetailPrice = RetailPrice;
+        }
+
+        public decimal GetDiscountPrice()
+        {
+            return this.DiscountPrice;
+        }
+        public void SetDiscountPrice(decimal DiscountPrice)
+        {
+            this.DiscountPrice = DiscountPrice;
+        }
+
+        public int GetCountOfProducts()
+        {
+            return this.CountOfProducts;
+        }
+        public void SetCountOfProducts(int CountOfProducts)
+        {
+            this.CountOfProducts = CountOfProducts;
+        }
+
+    }
+
+    class Customer
+    {
+        private string CustomerType;
+        private string Name;
+        private Product Product;
+        private decimal MaxPrice;
+
+        public Customer(string customerType, string name, Product product, decimal maxPrice)
+        {
+            CustomerType = customerType;
+            Name = name;
+            Product = product;
+            MaxPrice = maxPrice;
+        }
+
+        public Customer(string customerType, string name, decimal maxPrice)
+        {
+            CustomerType = customerType;
+            Name = name;
+            MaxPrice = maxPrice;
+        }
+
+        public Customer() { }
+
+        public string GetCustomerType()
+        {
+            return this.CustomerType;
+        }
+        public void SetCustomerType(string CustomerType)
+        {
+            this.CustomerType = CustomerType;
+        }
+
+        public string GetName()
+        {
+            return this.Name;
+        }
+        public void SetName(string Name)
+        {
+            this.Name = Name;
+        }
+
+        public Product GetProduct()
+        {
+            return this.Product;
+        }
+        public void SetProduct(Product Product)
+        {
+            this.Product = Product;
+        }
+
+        public decimal GetMaxPrice()
+        {
+            return this.MaxPrice;
+        }
+        public void SetMaxPrice(decimal MaxPrice)
+        {
+            this.MaxPrice = MaxPrice;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Product> listOfProducts = new List<Product>();
+            List<Customer> listOfCustomers = new List<Customer>();
+            EnterProducts(listOfProducts);
+            EnterCustomers(listOfProducts, listOfCustomers);
+            PrintCustomerInfo(listOfCustomers);
+        }
+
+        static void PrintCustomerInfo(List<Customer> listOfCustomers)
+        {
+            Console.WriteLine("Customers:");
+            foreach (Customer thisCustomer in listOfCustomers)
+            {
+                decimal totalPrice = 0m;
+                Console.WriteLine($">> Customer type: {thisCustomer.GetCustomerType()}");
+                Console.WriteLine($">> Customer name: {thisCustomer.GetName()}");
+                if (thisCustomer.GetProduct() == null)
+                {
+                    Console.WriteLine("This customer has not bought any product yet. ");
+                }
+                else
+                {
+                    Console.WriteLine($">> Product name: {thisCustomer.GetProduct().GetName()}");
+                    Console.WriteLine($">> Product quantity: {thisCustomer.GetProduct().GetCountOfProducts()}");
+                    Console.WriteLine($">> Customer bought {thisCustomer.GetProduct().GetCountOfProducts()} {thisCustomer.GetProduct().GetUnit()}s " +
+                        $"of {thisCustomer.GetProduct().GetName()}.");
+                    if (thisCustomer.GetProduct().GetCountOfProducts() > 15)
+                    {
+                        totalPrice = thisCustomer.GetProduct().GetCountOfProducts() * thisCustomer.GetProduct().GetDiscountPrice();
+                        Console.WriteLine($">> Price: {totalPrice:F2}$.");
+                    }
+                    else
+                    {
+                        totalPrice = thisCustomer.GetProduct().GetCountOfProducts() * thisCustomer.GetProduct().GetRetailPrice();
+                        Console.WriteLine($">> Price: {totalPrice:F2}$.");
+                    }
+                    if (totalPrice > thisCustomer.GetMaxPrice())
+                    {
+                        Console.WriteLine($"Customer has insufficient money: total price of order = {totalPrice:F2}$, maximal price = {thisCustomer.GetMaxPrice():F2}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Customer has enough money: total price of order = {totalPrice:F2}$, maximal price = {thisCustomer.GetMaxPrice():F2}$");
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static void EnterCustomers(List<Product> listOfProducts, List<Customer> listOfCustomers)
+        {
+            Console.WriteLine("Enter number of customers: ");
+            int nCust = int.Parse(Console.ReadLine());
+            for (int i = 0; i < nCust; i++)
+            {
+                Console.Write("Enter customer type: ");
+                string custType = Console.ReadLine();
+                Console.Write("Enter customer name: ");
+                string custName = Console.ReadLine();
+                Console.Write("Enter maximal price: ");
+                decimal maxPrice = decimal.Parse(Console.ReadLine());
+                Console.Write("Enter product name, or enter \"NONE\": ");
+                string prName = Console.ReadLine();
+                Customer customer = new Customer(custType, custName, maxPrice);
+                if (prName.ToUpper() != "NONE")
+                {
+                    customer.SetProduct(listOfProducts.Find(p => p.GetName().Equals(prName)));
+                }
+                listOfCustomers.Add(customer);
+            }
+            Console.WriteLine();
+        }
+
+        static void EnterProducts(List<Product> listOfProducts)
+        {
+            Console.WriteLine("Enter number of products: ");
+            int nProd = int.Parse(Console.ReadLine());
+            for (int i = 0; i < nProd; i++)
+            {
+                Console.Write("Enter product name: ");
+                string prodName = Console.ReadLine();
+                Console.Write("Enter unit: ");
+                string unit = Console.ReadLine();
+                Console.Write("Enter wholesale price: ");
+                decimal wholesale = decimal.Parse(Console.ReadLine());
+                decimal retail = (wholesale + (wholesale * 0.2m)) + (0.2m * (wholesale + (wholesale * 0.2m)));
+                decimal discount = (wholesale + (wholesale * 0.2m)) - (0.15m * (wholesale + (wholesale * 0.2m)));
+                Console.Write("Enter count of products: ");
+                int count = int.Parse(Console.ReadLine());
+                Product product = new Product(prodName, unit, wholesale, retail, discount, count);
+                listOfProducts.Add(product);
+            }
+            Console.WriteLine();
+        }
+    }
+}

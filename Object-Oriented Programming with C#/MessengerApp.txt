@@ -1,0 +1,127 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Messenger
+{
+    class Person
+    {
+        public string Name;
+        public int Age;
+
+        public Person(string Name, int Age)
+        {
+            this.Name = Name;
+            this.Age = Age;
+        }
+
+        public Person() { }
+
+        public string GetName()
+        {
+            return this.Name;
+        }
+        public void SetName(string Name)
+        {
+            this.Name = Name;
+        }
+
+        public int GetAge()
+        {
+            return this.Age;
+        }
+        public void SetAge(int Age)
+        {
+            this.Age = Age;
+        }
+    }
+
+    class Student: Person
+    {
+        public List<string> StudentInbox;
+        public Student(string Name, int Age, List<string> StudentInbox):base(Name, Age)
+        {
+            this.StudentInbox = StudentInbox;
+        }
+        public List<string> GetStudentInbox()
+        {
+            return this.StudentInbox;
+        }
+        public void SetStudentInbox(List<string> StudentInbox)
+        {
+            this.StudentInbox = StudentInbox;
+        }
+    }
+
+    class Teacher : Person
+    {
+        public List<string> TeacherInbox;
+        public Teacher(string Name, int Age, List<string> TeacherInbox) : base(Name, Age)
+        {
+            this.TeacherInbox = TeacherInbox;
+        }
+        public List<string> GetStudentInbox()
+        {
+            return this.TeacherInbox;
+        }
+        public void SetTeacherInbox(List<string> TeacherInbox)
+        {
+            this.TeacherInbox = TeacherInbox;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> studentInbox = new List<string>();
+            List<string> teacherInbox = new List<string>();
+            Console.WriteLine("Enter student's name: ");
+            string studentName = Console.ReadLine();
+            Console.WriteLine("Enter student's age: ");
+            int studentAge = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter teacher's name: ");
+            string teacherName = Console.ReadLine();
+            Console.WriteLine("Enter teacher's age: ");
+            int teacherAge = int.Parse(Console.ReadLine());
+            Student student = new Student(studentName, studentAge, studentInbox);
+            Teacher teacher = new Teacher(teacherName, teacherAge, teacherInbox);
+            Chat(student, teacher);
+            Console.WriteLine($"{student.Name}'s Inbox:");
+            foreach (string msg in student.StudentInbox)
+            {
+                Console.WriteLine($"{teacher.GetName()}: {msg}");
+            }
+            Console.WriteLine();
+            Console.WriteLine($"{teacher.Name}'s Inbox:");
+            foreach (string msg in teacher.TeacherInbox)
+            {
+                Console.WriteLine($"{student.GetName()}: {msg}");
+            }
+        }
+
+        static void Chat(Student student, Teacher teacher)
+        {
+            while (true)
+            {
+                Console.Write($"{student.GetName()}>>  ");
+                string stMsg = Console.ReadLine();
+                if (stMsg.Equals("END"))
+                {
+                    break;
+                }
+                teacher.TeacherInbox.Add(stMsg);
+                Console.Write($"{teacher.GetName()}>>  ");
+                string tcMsg = Console.ReadLine();
+                if (tcMsg.Equals("END"))
+                {
+                    break;
+                }
+                student.StudentInbox.Add(tcMsg);
+            }
+            Console.WriteLine();
+        }
+    }
+}

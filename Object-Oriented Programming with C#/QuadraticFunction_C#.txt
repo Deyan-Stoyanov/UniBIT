@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void FindResult(double a, double b, double c, double discriminant )
+        {
+            if (discriminant > 0)
+            {
+                double x1 = (-b - Math.Sqrt(discriminant)) / (2 * a);
+                double x2 = (-b + Math.Sqrt(discriminant)) / (2 * a);
+                Console.WriteLine($"Уравнението има 2 реални корена: x1 = {x1:F2} и x2 = {x2:F2}");
+                if (a > 0)
+                {
+                    Console.WriteLine($"Функцията е положителна от -? до {x1:F2}, отрицателна от {x1:F2} до {x2:F2}, и положителна от {x2:F2} до +?");
+                }
+                else
+                {
+                    Console.WriteLine($"Функцията е отрицателна от -? до {x1:F2}, положителна от {x1:F2} до {x2:F2}, и отрицателна от {x2:F2} до +?");
+                }
+            }
+            else if (discriminant == 0)
+            {
+                double x = -b / (2 * a);
+                Console.WriteLine($"Уравнението има 1 реален корен: x = {x:F2}");
+                if (a > 0)
+                {
+                    Console.WriteLine($"Функцията е положителна от -? до {x:F2} , и от {x:F2} до +?");
+                }
+                else
+                {
+                    Console.WriteLine($"Функцията е отрицателна от -? до {x:F2}, и от {x:F2} до +? \n");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Уравнението няма реални корени \n");
+            }
+        }
+
+
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine("Въведете а: ");
+            double a = double.Parse(Console.ReadLine());
+            Console.WriteLine("Въведете b: ");
+            double b = double.Parse(Console.ReadLine());
+            Console.WriteLine("Въведете c: ");
+            double c = double.Parse(Console.ReadLine());
+            double discriminant = Math.Pow(b, 2) - (4 * a * c);
+            FindResult(a, b, c, discriminant);
+        }
+    }
+}
