@@ -1,0 +1,206 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var num = int.Parse(Console.ReadLine());
+            var firstWord = "";
+            var secondWord = "";
+            var hundreds = "";
+            if (num == 0)
+            {
+                secondWord = "zero";
+            }
+            else if (num == 10)
+            {
+                secondWord = "ten";
+            }
+            else if (num == 11)
+            {
+                secondWord = "eleven";
+            }
+            else if (num == 12)
+            {
+                secondWord = "twelve";
+            }
+            else if (num == 13)
+            {
+                secondWord = "thirteen";
+            }
+            else if (num == 14)
+            {
+                secondWord = "fourteen";
+            }
+            else if (num == 15)
+            {
+                secondWord = "петнадесет";
+            }
+            else if (num == 16)
+            {
+                secondWord = "sixteen";
+            }
+            else if (num == 17)
+            {
+                secondWord = "seventeen";
+            }
+            else if (num == 18)
+            {
+                secondWord = "eighteen";
+            }
+            else if (num == 19)
+            {
+                secondWord = "nineteen";
+            }
+            else if (num % 10 == 1)
+            {
+                secondWord = "one";
+            }
+            else if (num % 10 == 2)
+            {
+                secondWord = "two";
+            }
+            else if (num % 10 == 3)
+            {
+                secondWord = "three";
+            }
+            else if (num % 10 == 4)
+            {
+                secondWord = "four";
+            }
+            else if (num % 10 == 5)
+            {
+                secondWord = "five";
+            }
+            else if (num % 10 == 6)
+            {
+                secondWord = "six";
+            }
+            else if (num % 10 == 7)
+            {
+                secondWord = "seven";
+            }
+            else if (num % 10 == 8)
+            {
+                secondWord = "eight";
+            } 
+            else if (num % 10 == 9)
+            {
+                secondWord = "nine";
+            }
+            if ((num - ((num / 100) * 100)) / 90 == 1)
+            {
+                firstWord = "ninety";
+            }
+            else if ((num - ((num / 100) * 100))/ 80 == 1)
+            {
+                firstWord = "eighty";
+            }
+            else if ((num - ((num / 100) * 100)) / 70 == 1)
+            {
+                firstWord = "seventy";
+            }
+            else if ((num - ((num / 100) * 100)) / 60 == 1)
+            {
+                firstWord = "sixty";
+            }
+            else if ((num - ((num / 100) * 100)) / 50 == 1)
+            {
+                firstWord = "fifty";
+            }
+            else if ((num - ((num / 100) * 100)) / 40 == 1)
+            {
+                firstWord = "forty";
+            }
+            else if ((num - ((num / 100) * 100)) / 30 == 1)
+            {
+                firstWord = "thirty";
+            }
+            else if ((num - ((num / 100) * 100)) / 20 == 1)
+            {
+                firstWord = "twenty";
+            }
+
+            if (num / 100 == 1)
+            {
+                hundreds = "one hundred";
+            }
+            else if (num / 100 == 2)
+            {
+                hundreds = "two hundred";
+            }
+            else if (num / 100 == 3)
+            {
+                hundreds = "three hundred";
+            }
+            else if (num / 100 == 4)
+            {
+                hundreds = "four hundred";
+            }
+            else if (num / 100 == 5)
+            {
+                hundreds = "five hundred";
+            }
+            else if (num / 100 == 6)
+            {
+                hundreds = "six hundred";
+            }
+            else if (num / 100 == 7)
+            {
+                hundreds = "seven hundred";
+            }
+            else if (num / 100 == 8)
+            {
+                hundreds = "eight hundred";
+            }
+            else if (num / 100 == 9)
+            {
+                hundreds = "nine hundred";
+            }
+            if (num == 1000)
+            {
+                hundreds = "one thousand";
+
+            }
+            if (num < 100)
+            {
+                if (num < 0)
+                {
+                    Console.WriteLine("negative number");
+                }
+                else if (num < 20)
+                {
+                    Console.WriteLine(secondWord);
+                }
+                else if (num % 10 == 0 && num < 100)
+                {
+                    Console.WriteLine(firstWord);
+                }
+                else
+                {
+                    Console.WriteLine(firstWord + "-" + secondWord);
+
+                }
+            }
+            if (num == 100)
+            {
+                Console.WriteLine(hundreds);
+            }
+            if (num > 100 && firstWord != "")
+            {
+                Console.WriteLine(hundreds + " " + firstWord + "-" + secondWord);
+            }
+            else if (num > 100 && firstWord == "")
+            {
+                Console.WriteLine(hundreds + " " + secondWord);
+            }
+        }
+    }
+}

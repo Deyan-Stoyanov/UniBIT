@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Numerics;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            List<int> str = new List<int>();
+            while (n >= 1)
+            {
+                var result = n % 2;
+                str.Add(result);
+                n /= 2;
+            }
+            for (int i = str.Count - 1; i >= 0; i--)
+            {
+                Console.Write(str[i]);
+            }
+            Console.WriteLine();
+
+        }
+
+    }
+}
