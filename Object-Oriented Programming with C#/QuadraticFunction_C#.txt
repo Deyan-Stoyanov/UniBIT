@@ -14,32 +14,32 @@ namespace ConsoleApp2
             {
                 double x1 = (-b - Math.Sqrt(discriminant)) / (2 * a);
                 double x2 = (-b + Math.Sqrt(discriminant)) / (2 * a);
-                Console.WriteLine($"Уравнението има 2 реални корена: x1 = {x1:F2} и x2 = {x2:F2}");
+                Console.WriteLine($"The equation has 2 real roots: x1 = {x1:F2} and x2 = {x2:F2}");
                 if (a > 0)
                 {
-                    Console.WriteLine($"Функцията е положителна от -? до {x1:F2}, отрицателна от {x1:F2} до {x2:F2}, и положителна от {x2:F2} до +?");
+                    Console.WriteLine($"The function is positive from -? to {x1:F2}, negative from {x1:F2} to {x2:F2}, and positive from {x2:F2} to +?");
                 }
                 else
                 {
-                    Console.WriteLine($"Функцията е отрицателна от -? до {x1:F2}, положителна от {x1:F2} до {x2:F2}, и отрицателна от {x2:F2} до +?");
+                    Console.WriteLine($"The function is negative from -? to {x1:F2}, positive from {x1:F2} to {x2:F2}, and negative from {x2:F2} to +?");
                 }
             }
             else if (discriminant == 0)
             {
                 double x = -b / (2 * a);
-                Console.WriteLine($"Уравнението има 1 реален корен: x = {x:F2}");
+                Console.WriteLine($"The equation has 1 real root: x = {x:F2}");
                 if (a > 0)
                 {
-                    Console.WriteLine($"Функцията е положителна от -? до {x:F2} , и от {x:F2} до +?");
+                    Console.WriteLine($"The function is positive from -? to {x:F2} , and from {x:F2} to +?");
                 }
                 else
                 {
-                    Console.WriteLine($"Функцията е отрицателна от -? до {x:F2}, и от {x:F2} до +? \n");
+                    Console.WriteLine($"The function is negative from -? to {x:F2}, and from {x:F2} to +? \n");
                 }
             }
             else
             {
-                Console.WriteLine("Уравнението няма реални корени \n");
+                Console.WriteLine("The equation has no real roots \n");
             }
         }
 
@@ -47,11 +47,11 @@ namespace ConsoleApp2
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Въведете а: ");
+            Console.WriteLine("Enter a: ");
             double a = double.Parse(Console.ReadLine());
-            Console.WriteLine("Въведете b: ");
+            Console.WriteLine("Enter b: ");
             double b = double.Parse(Console.ReadLine());
-            Console.WriteLine("Въведете c: ");
+            Console.WriteLine("Enter c: ");
             double c = double.Parse(Console.ReadLine());
             double discriminant = Math.Pow(b, 2) - (4 * a * c);
             FindResult(a, b, c, discriminant);
