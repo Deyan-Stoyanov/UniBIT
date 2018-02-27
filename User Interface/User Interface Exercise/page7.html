@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h2 id="h2_1">My Site</h2>
+    <h2>Hello friends</h2>
+    <h2 id="h2_2">My Site</h2>
+    <h2>Hello friends</h2>
+    <p id="p_1">Hello from our site!</p>
+<script>
+    x = document.getElementsByTagName("h2");
+    y = document.getElementsByTagName("a");
+    z = document.getElementsByTagName("p");
+    document.write("<br> x[0] = " + x[0].innerHTML);
+    document.write("<br> x[1] = " + x[1].innerHTML);
+    document.write("<br> x[2] = " + x[2].innerHTML);
+    document.write("<br> y[0] = " + y[0]);
+    document.write("<br> z[0] = " + z[0].innerHTML);
+    document.write("<br> z[1] = " + z[1]);
+    for (var i = 0; i < x.length; i++) {
+        document.getElementsByTagName("h2")[i].style = "color:red";
+    }
+</script>
+</body>
+</html>

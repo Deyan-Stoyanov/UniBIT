@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div>
+        
+        <button onclick="myFunc()">change text</button>
+    </div>
+    <script>
+        let pp = document.createElement("p");
+        pp.setAttribute("id", "pp");
+        pp.style = "color:red";
+        let atr = document.createAttribute("id");
+        atr.value = "pp1";
+        pp.setAttributeNode(atr);
+        pp.innerHTML = "Text of the paragraph";
+        document.body.appendChild(pp);
+        function myFunc() {
+            document.getElementById(" pp1").innerHTML = "New Text";
+            document.getElementById("pp1").style = "color:blue";
+        }
+    </script>
+</body>
+</html>

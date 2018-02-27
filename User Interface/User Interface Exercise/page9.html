@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="div1">
+        <img id="img1" height="300" width="200" src="bulb_on.png" />
+        <button id="b1" onclick="func1()">More</button>
+    </div>
+    <script>
+        function func1() {
+            let img2 = document.createElement("img");
+            img2.id = "img2";
+            img2.src = "bulb_off.jpg";
+            img2.height = "300";
+            img2.width = "200";
+            let b2 = document.createElement("button");
+            b2.id = "b2";
+            b2.innerHTML = "Less";
+            b2.setAttribute("onclick", "func2()");
+            document.getElementById("div1").appendChild(img2);
+            document.getElementById("div1").removeChild(document.getElementById("b1"));
+            document.getElementById("div1").appendChild(b2);
+        }
+        function func2() {
+            let b1 = document.createElement("button");
+            b1.id = "b1";
+            b1.innerHTML = "More";
+            b1.setAttribute("onclick", "func1()");
+            document.getElementById("div1").appendChild(b1);
+            document.getElementById("div1").removeChild(document.getElementById("img2"));
+            document.getElementById("div1").removeChild(document.getElementById("b2"));
+        }
+    </script>
+</body>
+</html>
