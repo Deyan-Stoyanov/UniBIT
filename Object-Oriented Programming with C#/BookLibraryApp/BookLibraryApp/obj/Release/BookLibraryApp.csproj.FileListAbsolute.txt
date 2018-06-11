@@ -1,0 +1,6 @@
+E:\Програмиране\УниБИТ\I. курс\2. Семестър\ПП\Solution2\BookLibraryApp\bin\Release\BookLibraryApp.exe.config
+E:\Програмиране\УниБИТ\I. курс\2. Семестър\ПП\Solution2\BookLibraryApp\bin\Release\BookLibraryApp.exe
+E:\Програмиране\УниБИТ\I. курс\2. Семестър\ПП\Solution2\BookLibraryApp\bin\Release\BookLibraryApp.pdb
+E:\Програмиране\УниБИТ\I. курс\2. Семестър\ПП\Solution2\BookLibraryApp\obj\Release\BookLibraryApp.csproj.CoreCompileInputs.cache
+E:\Програмиране\УниБИТ\I. курс\2. Семестър\ПП\Solution2\BookLibraryApp\obj\Release\BookLibraryApp.exe
+E:\Програмиране\УниБИТ\I. курс\2. Семестър\ПП\Solution2\BookLibraryApp\obj\Release\BookLibraryApp.pdb

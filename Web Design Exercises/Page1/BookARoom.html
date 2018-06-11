@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="Style.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1>Hotel "Bulgaria"</h1>
+    <nav class="topnav">
+        <ul>
+            <li class="li">
+                <a href="Home.html"> Home</a>
+            </li>
+            <li class="li">
+                <a href="Rooms.html">Rooms</a>
+            </li>
+            <li class="li">
+                <a href="Prices.html">Prices</a>
+            </li>
+            <li class="li">
+                <a href="BookARoom.html">Booking</a>
+            </li>
+            <li class="li">
+                <a href="Contacts.html">Contact us</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h2 align="center">Book a room</h2>
+    <form>
+        <div class="in"><input type="text" name="First Name" placeholder="Enter Your First Name"></div>
+        <div class="in"><input type="text" name="Last Name" placeholder="Enter Your Last Name"></div>
+        <div class="in"><input type="email" name="Email" placeholder="Enter Your Email"></div>
+        <div class="in">
+            <select name="room">
+                <option value="" selected disabled hidden>Choose a room</option>
+                <option name="single">Single Room</option>
+                <option name="double">Double Room</option>
+                <option name="studio">Studio</option>
+                <option name="appartment">Appartment</option>
+            </select>
+        </div>
+        <div class="doublein">
+            <div>Enter Check-In Date:</div>
+            <div>Enter Check-Out Date:</div>
+        </div>
+        <div class="in">
+            <input type="date" name="Check-In Date:" placeholder="Enter Check-In Date">
+            <input type="date" name="Check-Out Date:" placeholder="Enter Check-Out Date">
+        </div>
+        <button type="submit">Book this room</button>
+    </form>
+</main>
+<footer>
+    <p>Contacts</p>
+    <div>Phone number: +359 888 8888</div>
+    <div>Address: 2 Vitosha str., 1000 Sofia, Bulgaria</div>
+    <div>Email: abv@abv.bg</div>
+</footer>
+</body>
+</html>
